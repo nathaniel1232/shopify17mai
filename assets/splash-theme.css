@@ -18,8 +18,10 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background-color: var(--color-bg);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 img {
@@ -54,16 +56,17 @@ ul { list-style: none; }
 /* === Typography === */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--color-text);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 .section-heading {
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   text-align: center;
-  margin-bottom: 2rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.025em;
   font-weight: 700;
 }
 
@@ -90,15 +93,15 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 28px;
-  border: 2px solid transparent;
-  border-radius: 6px;
+  padding: 14px 32px;
+  border: 1.5px solid transparent;
+  border-radius: 4px;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.22s ease;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -115,17 +118,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn--secondary {
   background: transparent;
-  color: var(--color-secondary);
-  border-color: var(--color-secondary);
+  color: var(--color-text);
+  border-color: var(--color-text);
 }
 .btn--secondary:hover {
-  background: var(--color-secondary);
+  background: var(--color-text);
   color: #fff;
 }
 
 .btn--large {
-  padding: 16px 36px;
-  font-size: 0.95rem;
+  padding: 18px 40px;
+  font-size: 0.85rem;
 }
 
 .btn--full { width: 100%; }
@@ -133,12 +136,12 @@ h1, h2, h3, h4, h5, h6 {
 /* === Announcement Bar === */
 .announcement-bar {
   background: var(--color-secondary);
-  color: #fff;
-  padding: 10px 0;
+  color: rgba(255,255,255,0.9);
+  padding: 11px 0;
   text-align: center;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -153,17 +156,22 @@ h1, h2, h3, h4, h5, h6 {
 /* === Header === */
 .site-header {
   background: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: box-shadow 0.2s;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 72px;
   gap: 24px;
 }
 
@@ -174,10 +182,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: var(--color-text);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .header-nav {
@@ -308,27 +316,28 @@ h1, h2, h3, h4, h5, h6 {
 /* === Hero Banner === */
 .hero-banner {
   position: relative;
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--color-secondary);
   background-size: cover;
   background-position: center;
   overflow: hidden;
 }
 
 .campaign-17mai .hero-banner {
-  background: linear-gradient(135deg, #BA0C2F 0%, #00205B 50%, #BA0C2F 100%);
+  background-color: var(--color-secondary);
 }
 
 .campaign-summer .hero-banner {
-  background: linear-gradient(135deg, #00B4D8 0%, #0077B6 50%, #00B4D8 100%);
+  background-color: #003761;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: #000;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.55) 100%);
 }
 
 .hero-content {
@@ -336,7 +345,9 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
   text-align: center;
   color: #fff;
-  padding: 60px 20px;
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero-badge {
@@ -366,22 +377,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-heading {
-  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
-  margin-bottom: 20px;
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
+  margin-bottom: 24px;
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.08;
   font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.25);
 }
 
 .hero-subheading {
   font-size: clamp(1rem, 1.8vw, 1.2rem);
-  opacity: 0.85;
-  margin-bottom: 40px;
-  max-width: 560px;
+  opacity: 0.88;
+  margin-bottom: 44px;
+  max-width: 520px;
   margin-left: auto;
   margin-right: auto;
-  font-weight: 400;
-  line-height: 1.6;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #fff;
 }
 
 .hero-splash-drops {
@@ -464,9 +478,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .product-card__title {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: var(--color-text);
+  line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -499,7 +515,9 @@ h1, h2, h3, h4, h5, h6 {
 .product-card__add {
   margin: 0 16px 16px;
   width: calc(100% - 32px);
-  border-radius: 12px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  padding: 11px 16px;
 }
 
 /* === USP Banner === */
@@ -635,26 +653,30 @@ h1, h2, h3, h4, h5, h6 {
 
 .testimonial-stars {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .testimonial-text {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-style: italic;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   color: var(--color-text);
+  line-height: 1.7;
 }
 
 .testimonial-author {
   color: var(--color-text-light);
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* === Newsletter === */
 .newsletter {
-  padding: 64px 0;
+  padding: 80px 0;
 }
 
 .newsletter-card {
@@ -667,8 +689,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .newsletter-heading {
   color: #fff;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  margin-bottom: 12px;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
 }
 
 .newsletter-text {
@@ -1345,7 +1368,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* === Featured Collection Section === */
 .featured-collection {
-  padding: 64px 0;
+  padding: 80px 0;
 }
 
 /* === Placeholder SVG === */

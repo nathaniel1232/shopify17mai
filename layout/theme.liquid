@@ -15,6 +15,10 @@
 
   {{ content_for_header }}
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   {{ 'splash-theme.css' | asset_url | stylesheet_tag }}
 
   {% style %}
@@ -25,13 +29,10 @@
       --color-bg: {{ settings.color_background }};
       --color-text: {{ settings.color_text }};
       --color-text-light: {{ settings.color_text_light }};
-      --font-heading: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
-      --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
     }
   {% endstyle %}
-
-  {{ settings.font_heading | font_face: font_display: 'swap' }}
-  {{ settings.font_body | font_face: font_display: 'swap' }}
 
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
 </head>
