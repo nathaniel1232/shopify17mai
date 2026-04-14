@@ -3,7 +3,7 @@
     "hero": {
       "type": "hero-banner",
       "settings": {
-        "heading": "Gjør 17. mai SPLASH-tastisk! 💦🇳🇴",
+        "heading": "Opplev vannlek på et nytt nivå",
         "subheading": "Norges kuleste vannpistoler for tidenes beste feiring",
         "button_label": "Se alle vannpistoler",
         "button_link": "shopify://collections/all",
@@ -13,7 +13,7 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "heading": "Bestselgere 🔥",
+        "heading": "Bestselgere",
         "collection": "frontpage",
         "products_to_show": 4
       }
@@ -59,7 +59,7 @@
     "categories": {
       "type": "category-grid",
       "settings": {
-        "heading": "Finn din favoritt 🎯"
+        "heading": "Utforsk kategoriene"
       },
       "blocks": {
         "cat_1": {
@@ -96,31 +96,31 @@
     "testimonials": {
       "type": "testimonials",
       "settings": {
-        "heading": "Hva kundene sier 💬"
+        "heading": "Hva kundene sier"
       },
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
             "stars": 5,
-            "text": "Absolutt den beste vannpistolen jeg har hatt! 17. mai ble EPISK!",
-            "author": "Markus, 19"
+            "text": "Svært god kvalitet og rask levering. Definitivt verdt pengene.",
+            "author": "Markus L."
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
             "stars": 5,
-            "text": "Rask levering og sykt bra kvalitet. Alle vennene mine vil ha en!",
-            "author": "Sara, 17"
+            "text": "Imponerende forsendelsestid og produktet overtraff forventningene mine.",
+            "author": "Sara K."
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
             "stars": 5,
-            "text": "Perfekt til russetiden og 17. mai. Kommer til å bestille flere!",
-            "author": "Jonas, 18"
+            "text": "Enkel bestillingsprosess og produktet holder høy standard. Anbefales.",
+            "author": "Jonas T."
           }
         }
       },
@@ -129,8 +129,8 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "heading": "Bli med i Splash-gjengen! 🌊",
-        "text": "Få eksklusive tilbud, nyheter og gode deals rett i innboksen"
+        "heading": "Hold deg oppdatert",
+        "text": "Få eksklusive tilbud og nyheter rett i innboksen"
       }
     }
   },

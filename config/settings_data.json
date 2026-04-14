@@ -6,7 +6,7 @@
     "color_background": "#FFFFFF",
     "color_text": "#1A1A2E",
     "color_text_light": "#6B7280",
-    "font_heading": "fredoka_one_n4",
+    "font_heading": "playfair_display_n4",
     "font_body": "inter_n4",
     "logo_width": 150,
     "campaign_mode": "17mai",
@@ -15,7 +15,7 @@
         "type": "header",
         "settings": {
           "show_announcement": true,
-          "announcement_text": "🇳🇴 Klar for 17. mai? Gratis frakt over 499kr! 💦"
+          "announcement_text": "Gratis frakt over 499 kr — Rask levering 1–3 virkedager"
         }
       },
       "footer": {

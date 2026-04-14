@@ -24,18 +24,18 @@
       </div>
     </div>
 
-    {% if collection.products.size > 0 %}
-      <div class="product-grid product-grid--4">
-        {% for product in collection.products %}
-          {% render 'product-card', product: product %}
-        {% endfor %}
-      </div>
+    {% paginate collection.products by 12 %}
+      {% if collection.products.size > 0 %}
+        <div class="product-grid product-grid--4">
+          {% for product in collection.products %}
+            {% render 'product-card', product: product %}
+          {% endfor %}
+        </div>
 
-      {% if paginate.pages > 1 %}
-        {% paginate collection.products by 12 %}
+        {% if paginate.pages > 1 %}
           <nav class="pagination">
             {% if paginate.previous %}
-              <a href="{{ paginate.previous.url }}" class="pagination-btn">← Forrige</a>
+              <a href="{{ paginate.previous.url }}" class="pagination-btn">&larr; Forrige</a>
             {% endif %}
 
             {% for part in paginate.parts %}
@@ -47,17 +47,17 @@
             {% endfor %}
 
             {% if paginate.next %}
-              <a href="{{ paginate.next.url }}" class="pagination-btn">Neste →</a>
+              <a href="{{ paginate.next.url }}" class="pagination-btn">Neste &rarr;</a>
             {% endif %}
           </nav>
-        {% endpaginate %}
-      {% endif %}
-    {% else %}
+        {% endif %}
+      {% else %}
       <div class="collection-empty">
-        <p>Ingen produkter funnet 😢</p>
+        <p>Ingen produkter funnet</p>
         <a href="/collections/all" class="btn btn--primary">Se alle produkter</a>
       </div>
     {% endif %}
+    {% endpaginate %}
   </div>
 </section>
 

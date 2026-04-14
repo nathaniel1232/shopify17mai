@@ -17,11 +17,11 @@
           >
           <input type="hidden" name="contact[tags]" value="nyhetsbrev">
           <button type="submit" class="btn btn--primary">
-            Bli med! 🌊
+            Meld deg på
           </button>
         </div>
         {% if form.posted_successfully? %}
-          <p class="newsletter-success">Takk! Du er nå med i Splash-gjengen! 🎉</p>
+          <p class="newsletter-success">Takk! Du vil nå motta nyheter og tilbud fra oss.</p>
         {% endif %}
       {% endform %}
     </div>
@@ -38,7 +38,7 @@
       "type": "text",
       "id": "heading",
       "label": "Overskrift",
-      "default": "Bli med i Splash-gjengen! 🌊"
+      "default": "Hold deg oppdatert"
     },
     {
       "type": "textarea",

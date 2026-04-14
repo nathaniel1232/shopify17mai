@@ -7,10 +7,10 @@
           {% if settings.logo %}
             <img src="{{ settings.logo | image_url: width: 120 }}" alt="{{ shop.name }}" width="120">
           {% else %}
-            <span class="logo-text">💦 {{ shop.name }}</span>
+            <span class="logo-text">{{ shop.name }}</span>
           {% endif %}
         </a>
-        <p class="footer-tagline">Norges kuleste vannleker! 🇳🇴</p>
+        <p class="footer-tagline">Kvalitetsprodukter levert til din dør</p>
 
         <div class="footer-social">
           {% if settings.social_instagram != blank %}
@@ -51,8 +51,8 @@
       <!-- Contact -->
       <div class="footer-contact">
         <h4 class="footer-heading">Kontakt oss</h4>
-        <p>📧 {{ shop.email }}</p>
-        <p>💦 Vi svarer innen 24 timer!</p>
+        <p>{{ shop.email }}</p>
+        <p>Vi svarer innen 24 timer</p>
       </div>
     </div>
 
