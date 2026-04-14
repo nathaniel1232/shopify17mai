@@ -3,17 +3,17 @@
     "hero": {
       "type": "hero-banner",
       "settings": {
-        "heading": "Opplev vannlek på et nytt nivå",
-        "subheading": "Norges kuleste vannpistoler for tidenes beste feiring",
-        "button_label": "Se alle vannpistoler",
+        "heading": "Sommeren starter her",
+        "subheading": "Norges største utvalg av vannleker. Rask levering — klar til feiring.",
+        "button_label": "Se produkter",
         "button_link": "shopify://collections/all",
-        "overlay_opacity": 30
+        "overlay_opacity": 40
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "heading": "Bestselgere",
+        "heading": "Mest populære",
         "collection": "frontpage",
         "products_to_show": 4
       }
@@ -26,15 +26,15 @@
           "settings": {
             "icon": "truck",
             "title": "Gratis frakt",
-            "text": "Over 499 kr"
+            "text": "På alle ordre over 499 kr"
           }
         },
         "usp_2": {
           "type": "usp",
           "settings": {
             "icon": "shield",
-            "title": "Trygg handel",
-            "text": "Sikker betaling"
+            "title": "Trygg betaling",
+            "text": "Kryptert og sikker kasse"
           }
         },
         "usp_3": {
@@ -42,15 +42,15 @@
           "settings": {
             "icon": "clock",
             "title": "Rask levering",
-            "text": "1-3 virkedager"
+            "text": "1–3 virkedager"
           }
         },
         "usp_4": {
           "type": "usp",
           "settings": {
             "icon": "star",
-            "title": "Topp kvalitet",
-            "text": "Garantert moro"
+            "title": "30 dagers retur",
+            "text": "Full returrett"
           }
         }
       },
@@ -59,7 +59,7 @@
     "categories": {
       "type": "category-grid",
       "settings": {
-        "heading": "Utforsk kategoriene"
+        "heading": "Handle etter kategori"
       },
       "blocks": {
         "cat_1": {
@@ -96,14 +96,14 @@
     "testimonials": {
       "type": "testimonials",
       "settings": {
-        "heading": "Hva kundene sier"
+        "heading": "Det kundene sier"
       },
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
             "stars": 5,
-            "text": "Svært god kvalitet og rask levering. Definitivt verdt pengene.",
+            "text": "Bestilte fredag og pakken lå i postkassen mandag. Kvaliteten er langt bedre enn forventet for prisen.",
             "author": "Markus L."
           }
         },
@@ -111,7 +111,7 @@
           "type": "review",
           "settings": {
             "stars": 5,
-            "text": "Imponerende forsendelsestid og produktet overtraff forventningene mine.",
+            "text": "Enkelt å bestille, rask levering og produktet ser dyrt ut. Barna er fornøyde — det er vi også.",
             "author": "Sara K."
           }
         },
@@ -119,7 +119,7 @@
           "type": "review",
           "settings": {
             "stars": 5,
-            "text": "Enkel bestillingsprosess og produktet holder høy standard. Anbefales.",
+            "text": "Kjøpte til 17. mai og det var et skikkelig løft. Kommer absolutt til å handle igjen.",
             "author": "Jonas T."
           }
         }
@@ -129,8 +129,8 @@
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "heading": "Hold deg oppdatert",
-        "text": "Få eksklusive tilbud og nyheter rett i innboksen"
+        "heading": "Aldri gå glipp av et tilbud",
+        "text": "Meld deg på og få eksklusive rabatter og nyheter rett i innboksen din"
       }
     }
   },
