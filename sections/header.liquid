@@ -1,0 +1,112 @@
+{% comment %} Announcement Bar {% endcomment %}
+{% if section.settings.show_announcement and section.settings.announcement_text != blank %}
+  <div class="announcement-bar">
+    <div class="container">
+      <p class="announcement-text">{{ section.settings.announcement_text }}</p>
+    </div>
+  </div>
+{% endif %}
+
+<header class="site-header" data-header>
+  <div class="container">
+    <div class="header-inner">
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" aria-label="Meny" data-mobile-toggle>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <!-- Logo -->
+      <div class="header-logo">
+        <a href="/" class="logo-link">
+          {% if settings.logo %}
+            <img
+              src="{{ settings.logo | image_url: width: settings.logo_width }}"
+              alt="{{ shop.name }}"
+              width="{{ settings.logo_width }}"
+              height="{{ settings.logo_width | divided_by: settings.logo.aspect_ratio }}"
+            >
+          {% else %}
+            <span class="logo-text">
+              💦 {{ shop.name }}
+            </span>
+          {% endif %}
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="header-nav" role="navigation">
+        {% for link in section.settings.menu.links %}
+          {% if link.links.size > 0 %}
+            <div class="nav-dropdown">
+              <a href="{{ link.url }}" class="nav-link nav-link--has-dropdown">
+                {{ link.title }}
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </a>
+              <div class="nav-dropdown__menu">
+                {% for child in link.links %}
+                  <a href="{{ child.url }}" class="nav-dropdown__link">{{ child.title }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          {% else %}
+            <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <a href="/search" class="header-action" aria-label="Søk">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+        <a href="/account" class="header-action" aria-label="Konto">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <a href="/cart" class="header-action header-cart" aria-label="Handlekurv">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" data-mobile-menu>
+    <nav class="mobile-nav">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+        {% for child in link.links %}
+          <a href="{{ child.url }}" class="mobile-nav__link mobile-nav__link--child">{{ child.title }}</a>
+        {% endfor %}
+      {% endfor %}
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "div",
+  "class": "header-wrapper",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Vis kunngjøringsbanner",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Kunngjøringstekst",
+      "default": "🇳🇴 Klar for 17. mai? Gratis frakt over 499kr! 💦"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Meny",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

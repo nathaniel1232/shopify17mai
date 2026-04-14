@@ -1,0 +1,35 @@
+{
+  "current": {
+    "color_primary": "#BA0C2F",
+    "color_secondary": "#00205B",
+    "color_accent": "#00B4D8",
+    "color_background": "#FFFFFF",
+    "color_text": "#1A1A2E",
+    "color_text_light": "#6B7280",
+    "font_heading": "fredoka_one_n4",
+    "font_body": "inter_n4",
+    "logo_width": 150,
+    "campaign_mode": "17mai",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "show_announcement": true,
+          "announcement_text": "🇳🇴 Klar for 17. mai? Gratis frakt over 499kr! 💦"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    },
+    "content_for_index": [
+      "hero",
+      "featured_collection",
+      "usp_banner",
+      "categories",
+      "testimonials",
+      "newsletter"
+    ]
+  }
+}

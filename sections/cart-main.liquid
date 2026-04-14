@@ -1,0 +1,128 @@
+<section class="cart-main">
+  <div class="container">
+    <h1 class="cart-title">Din handlekurv 🛒</h1>
+
+    {% if cart.item_count > 0 %}
+      <form action="/cart" method="post" class="cart-form">
+        <div class="cart-layout">
+          <div class="cart-items">
+            {% for item in cart.items %}
+              <div class="cart-item">
+                <div class="cart-item__image">
+                  <a href="{{ item.url }}">
+                    {% if item.image %}
+                      <img
+                        src="{{ item.image | image_url: width: 150 }}"
+                        alt="{{ item.title | escape }}"
+                        width="150"
+                        height="150"
+                        loading="lazy"
+                      >
+                    {% endif %}
+                  </a>
+                </div>
+
+                <div class="cart-item__info">
+                  <h3 class="cart-item__title">
+                    <a href="{{ item.url }}">{{ item.product.title }}</a>
+                  </h3>
+                  {% if item.variant.title != 'Default Title' %}
+                    <p class="cart-item__variant">{{ item.variant.title }}</p>
+                  {% endif %}
+                  <p class="cart-item__price">{{ item.price | money }}</p>
+                </div>
+
+                <div class="cart-item__quantity">
+                  <div class="quantity-selector">
+                    <button type="button" class="quantity-btn" onclick="this.parentNode.querySelector('input').stepDown(); this.closest('form').submit();">−</button>
+                    <input
+                      type="number"
+                      name="updates[]"
+                      value="{{ item.quantity }}"
+                      min="0"
+                      class="quantity-input"
+                      aria-label="Antall"
+                    >
+                    <button type="button" class="quantity-btn" onclick="this.parentNode.querySelector('input').stepUp(); this.closest('form').submit();">+</button>
+                  </div>
+                </div>
+
+                <div class="cart-item__total">
+                  <p>{{ item.line_price | money }}</p>
+                  <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="cart-item__remove">
+                    Fjern
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="cart-summary">
+            <div class="cart-summary__card">
+              <h3>Ordreoversikt</h3>
+
+              <div class="cart-summary__row">
+                <span>Delsum</span>
+                <span>{{ cart.total_price | money }}</span>
+              </div>
+
+              <div class="cart-summary__row">
+                <span>Frakt</span>
+                <span>
+                  {% if cart.total_price >= 49900 %}
+                    <span class="cart-free-shipping">GRATIS! 🎉</span>
+                  {% else %}
+                    Beregnes ved kassen
+                  {% endif %}
+                </span>
+              </div>
+
+              {% if cart.total_price < 49900 %}
+                <div class="cart-shipping-progress">
+                  {% assign remaining = 49900 | minus: cart.total_price %}
+                  <p class="cart-shipping-text">
+                    Bare {{ remaining | money }} igjen for gratis frakt! 🚀
+                  </p>
+                  {% assign progress = cart.total_price | times: 100 | divided_by: 49900 %}
+                  <div class="progress-bar">
+                    <div class="progress-bar__fill" style="width: {{ progress }}%;"></div>
+                  </div>
+                </div>
+              {% endif %}
+
+              <div class="cart-summary__total">
+                <span>Totalt</span>
+                <span>{{ cart.total_price | money }}</span>
+              </div>
+
+              <button type="submit" name="checkout" class="btn btn--primary btn--full btn--large">
+                Gå til kassen 🚀
+              </button>
+
+              <a href="/collections/all" class="cart-continue">
+                ← Fortsett å handle
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    {% else %}
+      <div class="cart-empty">
+        <div class="cart-empty__icon">🛒</div>
+        <h2>Handlekurven din er tom!</h2>
+        <p>Tid for å fylle opp med vannpistoler? 💦</p>
+        <a href="/collections/all" class="btn btn--primary btn--large">
+          Se alle produkter
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Handlekurv",
+  "tag": "section",
+  "class": "cart-section"
+}
+{% endschema %}

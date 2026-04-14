@@ -1,0 +1,71 @@
+{
+  "general": {
+    "password_page": "Vi åpner snart!",
+    "404": {
+      "title": "Siden ble ikke funnet",
+      "subtext": "Beklager, vi finner ikke denne siden. Kanskje den har blitt vasket bort? 💦"
+    }
+  },
+  "sections": {
+    "header": {
+      "announcement": "🇳🇴 Klar for 17. mai? Gratis frakt over 499kr! 💦"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Legg i handlekurv",
+      "sold_out": "Utsolgt",
+      "quantity": "Antall",
+      "description": "Beskrivelse"
+    }
+  },
+  "collections": {
+    "general": {
+      "no_matches": "Beklager, ingen produkter matcher søket ditt.",
+      "items_count": "{{ count }} produkter"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Handlekurv",
+      "empty": "Handlekurven din er tom",
+      "subtotal": "Delsum",
+      "total": "Totalt",
+      "checkout": "Gå til kassen",
+      "continue_shopping": "Fortsett å handle",
+      "remove": "Fjern",
+      "shipping": "Frakt",
+      "free_shipping": "Gratis!"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Min konto"
+    },
+    "login": {
+      "title": "Logg inn",
+      "email": "E-post",
+      "password": "Passord",
+      "submit": "Logg inn",
+      "forgot_password": "Glemt passord?"
+    },
+    "register": {
+      "title": "Opprett konto",
+      "first_name": "Fornavn",
+      "last_name": "Etternavn",
+      "email": "E-post",
+      "password": "Passord",
+      "submit": "Opprett konto"
+    }
+  },
+  "newsletter": {
+    "label": "E-postadresse",
+    "success": "Takk for at du abonnerer!",
+    "button_label": "Abonner"
+  },
+  "accessibility": {
+    "skip_to_content": "Gå til innhold",
+    "close": "Lukk",
+    "menu": "Meny"
+  }
+}

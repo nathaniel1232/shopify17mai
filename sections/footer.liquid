@@ -1,0 +1,75 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">
+          {% if settings.logo %}
+            <img src="{{ settings.logo | image_url: width: 120 }}" alt="{{ shop.name }}" width="120">
+          {% else %}
+            <span class="logo-text">💦 {{ shop.name }}</span>
+          {% endif %}
+        </a>
+        <p class="footer-tagline">Norges kuleste vannleker! 🇳🇴</p>
+
+        <div class="footer-social">
+          {% if settings.social_instagram != blank %}
+            <a href="{{ settings.social_instagram }}" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          {% endif %}
+          {% if settings.social_tiktok != blank %}
+            <a href="{{ settings.social_tiktok }}" class="social-link" aria-label="TikTok" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.93 2.93 0 0 1 .88.13v-3.5a6.37 6.37 0 0 0-1-.05A6.34 6.34 0 0 0 3 15.31a6.34 6.34 0 0 0 6.37 6.34A6.34 6.34 0 0 0 15.71 15V8.73a8.19 8.19 0 0 0 4.79 1.52V6.79a4.85 4.85 0 0 1-.91-.1z"/></svg>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4 class="footer-heading">Hurtiglenker</h4>
+        <ul>
+          <li><a href="/collections/all">Alle produkter</a></li>
+          <li><a href="/collections/vannpistoler">Vannpistoler</a></li>
+          <li><a href="/collections/vannballonger">Vannballonger</a></li>
+          <li><a href="/pages/about">Om oss</a></li>
+        </ul>
+      </div>
+
+      <!-- Customer Service -->
+      <div class="footer-links">
+        <h4 class="footer-heading">Kundeservice</h4>
+        <ul>
+          <li><a href="/pages/shipping">Frakt & levering</a></li>
+          <li><a href="/pages/returns">Retur & bytte</a></li>
+          <li><a href="/pages/faq">Ofte stilte spørsmål</a></li>
+          <li><a href="/pages/contact">Kontakt oss</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h4 class="footer-heading">Kontakt oss</h4>
+        <p>📧 {{ shop.email }}</p>
+        <p>💦 Vi svarer innen 24 timer!</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Alle rettigheter reservert.</p>
+      <div class="footer-payment">
+        <span>Vi aksepterer:</span>
+        {{ shop.enabled_payment_types | payment_type_svg_tag }}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "div",
+  "class": "footer-wrapper"
+}
+{% endschema %}

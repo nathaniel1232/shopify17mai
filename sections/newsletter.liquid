@@ -1,0 +1,56 @@
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-card">
+      <div class="newsletter-content">
+        <h2 class="newsletter-heading">{{ section.settings.heading }}</h2>
+        <p class="newsletter-text">{{ section.settings.text }}</p>
+      </div>
+      {% form 'customer' %}
+        <div class="newsletter-form">
+          <input
+            type="email"
+            name="contact[email]"
+            placeholder="Din e-postadresse"
+            required
+            autocomplete="email"
+            class="newsletter-input"
+          >
+          <input type="hidden" name="contact[tags]" value="nyhetsbrev">
+          <button type="submit" class="btn btn--primary">
+            Bli med! 🌊
+          </button>
+        </div>
+        {% if form.posted_successfully? %}
+          <p class="newsletter-success">Takk! Du er nå med i Splash-gjengen! 🎉</p>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Nyhetsbrev",
+  "tag": "section",
+  "class": "newsletter-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Overskrift",
+      "default": "Bli med i Splash-gjengen! 🌊"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Tekst",
+      "default": "Få eksklusive tilbud, nyheter og gode deals rett i innboksen"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Nyhetsbrev"
+    }
+  ]
+}
+{% endschema %}

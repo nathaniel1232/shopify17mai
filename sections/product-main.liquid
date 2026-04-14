@@ -1,0 +1,160 @@
+<section class="product-main">
+  <div class="container">
+    <div class="product-layout">
+      <!-- Product Gallery -->
+      <div class="product-gallery">
+        <div class="product-gallery__main">
+          {% if product.featured_image %}
+            <img
+              src="{{ product.featured_image | image_url: width: 800 }}"
+              alt="{{ product.featured_image.alt | escape }}"
+              width="800"
+              height="800"
+              class="product-gallery__image"
+              id="product-main-image"
+            >
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+
+          {% if product.compare_at_price > product.price %}
+            <span class="product-badge product-badge--sale">TILBUD! 🔥</span>
+          {% endif %}
+        </div>
+
+        {% if product.images.size > 1 %}
+          <div class="product-gallery__thumbs">
+            {% for image in product.images %}
+              <button
+                class="product-gallery__thumb{% if forloop.first %} active{% endif %}"
+                data-image-url="{{ image | image_url: width: 800 }}"
+                data-index="{{ forloop.index0 }}"
+              >
+                <img
+                  src="{{ image | image_url: width: 150 }}"
+                  alt="{{ image.alt | escape }}"
+                  width="150"
+                  height="150"
+                  loading="lazy"
+                >
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <nav class="product-breadcrumb">
+          <a href="/">Hjem</a> /
+          {% if product.collections.size > 0 %}
+            <a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a> /
+          {% endif %}
+          <span>{{ product.title }}</span>
+        </nav>
+
+        <h1 class="product-title">{{ product.title }}</h1>
+
+        <div class="product-price">
+          {% if product.compare_at_price > product.price %}
+            <span class="product-price__compare">{{ product.compare_at_price | money }}</span>
+            <span class="product-price__sale">{{ product.price | money }}</span>
+            <span class="product-price__badge">
+              Spar {{ product.compare_at_price | minus: product.price | money }}!
+            </span>
+          {% else %}
+            <span class="product-price__regular">{{ product.price | money }}</span>
+          {% endif %}
+        </div>
+
+        <div class="product-description">
+          {{ product.description }}
+        </div>
+
+        {% form 'product', product %}
+          {% if product.variants.size > 1 %}
+            <div class="product-variants">
+              {% for option in product.options_with_values %}
+                <div class="product-option">
+                  <label class="product-option__label">{{ option.name }}</label>
+                  <div class="product-option__values">
+                    {% for value in option.values %}
+                      <label class="product-option__value">
+                        <input
+                          type="radio"
+                          name="option-{{ option.name | handleize }}"
+                          value="{{ value }}"
+                          {% if option.selected_value == value %}checked{% endif %}
+                        >
+                        <span>{{ value }}</span>
+                      </label>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <select name="id" class="product-variant-select visually-hidden">
+              {% for variant in product.variants %}
+                <option
+                  value="{{ variant.id }}"
+                  {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+                  {% unless variant.available %}disabled{% endunless %}
+                >
+                  {{ variant.title }} - {{ variant.price | money }}
+                </option>
+              {% endfor %}
+            </select>
+          {% else %}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          {% endif %}
+
+          <div class="product-quantity">
+            <label>Antall</label>
+            <div class="quantity-selector">
+              <button type="button" class="quantity-btn" data-action="decrease">−</button>
+              <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+              <button type="button" class="quantity-btn" data-action="increase">+</button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn--primary btn--full btn--large add-to-cart-btn"
+            {% unless product.available %}disabled{% endunless %}
+          >
+            {% if product.available %}
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+              Legg i handlekurv 🛒
+            {% else %}
+              Utsolgt 😢
+            {% endif %}
+          </button>
+        {% endform %}
+
+        <div class="product-trust">
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span>Gratis frakt over 499 kr</span>
+          </div>
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>30 dagers returrett</span>
+          </div>
+          <div class="trust-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Kvalitetsgaranti</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Produktside",
+  "tag": "section",
+  "class": "product-section"
+}
+{% endschema %}
